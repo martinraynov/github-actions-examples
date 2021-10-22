@@ -1,0 +1,30 @@
+name: SonarCloud
+on:
+  push:
+    branches: [ master, develop]
+  pull_request:
+    branches: [ master, develop]
+jobs:
+  set_envs:
+    runs-on: ubuntu-latest
+
+    env:
+      ENV1: "Test Env 1"
+      ENV2: "Test Env 2"
+      ENV3: "Test Env 3"
+
+    steps:
+      - name: Echo Job 1 env variables
+        run: |
+          echo ${{ env.ENV1 }}
+          echo ${{ env.ENV2 }}
+          echo ${{ env.ENV3 }}
+  get_envs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo Job 1 env variables
+        run: |
+          echo ${{ env.ENV1 }}
+          echo ${{ env.ENV2 }}
+          echo ${{ env.ENV3 }}
