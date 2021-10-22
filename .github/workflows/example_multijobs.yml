@@ -20,6 +20,7 @@ jobs:
           echo ${{ env.ENV2 }}
           echo ${{ env.ENV3 }}
   get_envs:
+    needs: set_envs
     runs-on: ubuntu-latest
 
     steps:
