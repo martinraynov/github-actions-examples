@@ -16,9 +16,9 @@ jobs:
     steps:
       - name: Echo Job 1 env variables
         run: |
-          echo ENV1="${{ env.ENV1 }}" >> test.env
-          echo ENV2="${{ env.ENV2 }}" >> test.env
-          echo ENV3="${{ env.ENV3 }}" >> test.env
+          echo ENV1=\"${{ env.ENV1 }}\" >> test.env
+          echo ENV2=\"${{ env.ENV2 }}\" >> test.env
+          echo ENV3=\"${{ env.ENV3 }}\" >> test.env
       - name: Display generated file 
         run: |
           cat test.env
