@@ -35,7 +35,7 @@ jobs:
           name: envvars
       - name: Export variables from file
         run: |
-          export $(cat test.env | xargs)
+          export $(cat envvars/test.env | xargs)
       - name: Echo Job 1 env variables
         run: |
           echo $ENV1
