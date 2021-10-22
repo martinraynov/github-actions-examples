@@ -19,6 +19,9 @@ jobs:
           echo ENV1="${{ env.ENV1 }}" >> test.env
           echo ENV2="${{ env.ENV2 }}" >> test.env
           echo ENV3="${{ env.ENV3 }}" >> test.env
+      - name: Display generated file 
+        run: |
+          cat test.env
       - name: Upload env variables
         uses: actions/upload-artifact@v2
         with:
@@ -40,3 +43,5 @@ jobs:
       - name: Echo Job 1 env variables
         run: |
           echo $ENV1
+          echo $ENV2
+          echo $ENV3
