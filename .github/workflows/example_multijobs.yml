@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ENV1: "Test Env 1"
-      ENV2: "Test Env 2"
-      ENV3: "Test Env 3"
+      ENV1: "TestEnv1"
+      ENV2: "TestEnv2"
+      ENV3: "TestEnv3"
 
     steps:
       - name: Echo Job 1 env variables
