@@ -16,16 +16,24 @@ jobs:
     steps:
       - name: Echo Job 1 env variables
         run: |
-          echo ${{ env.ENV1 }}
-          echo ${{ env.ENV2 }}
-          echo ${{ env.ENV3 }}
+          echo ENV1=${{ env.ENV1 }} >> test.env
+          echo ENV2=${{ env.ENV2 }} >> test.env
+          echo ENV3=${{ env.ENV3 }} >> test.env
+      - name: Upload env variables
+      - uses: actions/upload-artifact@v2
+      with:
+        name: envvars
+        path: test.env
   get_envs:
     needs: set_envs
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download env variables
+        uses: actions/download-artifact@v1
+        with: envvars
+        run: |
+          export $(cat test.env | xargs)
       - name: Echo Job 1 env variables
         run: |
-          echo ${{ env.ENV1 }}
-          echo ${{ env.ENV2 }}
-          echo ${{ env.ENV3 }}
+          echo $ENV1
