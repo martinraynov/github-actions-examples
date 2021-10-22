@@ -42,6 +42,7 @@ jobs:
           export $(cat envvars/test.env | xargs)
       - name: Echo Job 1 env variables
         run: |
-          echo $ENV1
+          echo ${{env.ENV1}}
           echo $ENV2
           echo $ENV3
+          env
