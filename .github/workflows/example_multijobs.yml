@@ -21,9 +21,9 @@ jobs:
           echo ENV3=${{ env.ENV3 }} >> test.env
       - name: Upload env variables
       - uses: actions/upload-artifact@v2
-      with:
-        name: envvars
-        path: test.env
+        with:
+          name: envvars
+          path: test.env
   get_envs:
     needs: set_envs
     runs-on: ubuntu-latest
@@ -31,7 +31,9 @@ jobs:
     steps:
       - name: Download env variables
         uses: actions/download-artifact@v1
-        with: envvars
+        with: 
+          name: envvars
+      - name: Export vars
         run: |
           export $(cat test.env | xargs)
       - name: Echo Job 1 env variables
