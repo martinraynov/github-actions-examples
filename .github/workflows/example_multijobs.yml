@@ -33,6 +33,7 @@ jobs:
         uses: actions/download-artifact@v1
         with: 
           name: envvars
+      - name: Export variables from file
         run: |
           export $(cat test.env | xargs)
       - name: Echo Job 1 env variables
