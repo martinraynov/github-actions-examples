@@ -20,7 +20,7 @@ jobs:
           echo ENV2=${{ env.ENV2 }} >> test.env
           echo ENV3=${{ env.ENV3 }} >> test.env
       - name: Upload env variables
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: envvars
           path: test.env
